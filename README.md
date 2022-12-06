@@ -19,7 +19,7 @@
 # 코랩에서 실행하는 경우
 !pip install transformers
 ```
-### 2) 모델 불러오기
+### 2) 모델 불러오기(python)
 ```python
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 tokenizer = AutoTokenizer.from_pretrained("yuniv/KoSST")
@@ -46,7 +46,7 @@ paraphrasing("<s>"+[바꿀 문장]+"</s>")
 !pip install transformers
 ```
 
-### 2) 모델 불러오기
+### 2) 모델 불러오기(python)
 ```python
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 tokenizer = AutoTokenizer.from_pretrained("")
