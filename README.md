@@ -24,7 +24,7 @@ model = AutoModelForSeq2SeqLM.from_pretrained("yuniv/KoSST")
 --- 
 ```
 필요한 라이브러리 install까지 포함한 .ipynb을 기능별로 업로드해두었습니다.
-코랩에서 해당 파일로 실행할 경우에는 1), 2)번 과정을 생략할 수 있습니다.
+해당 파일을 다운받아 코랩에서 실행할 경우에는 1), 2)번 과정을 생략할 수 있습니다.
 ```
 ## 1. 격식-비격식 전환 기능
 *코랩에서 실행하고자 하는 경우 paraphrase.ipynb 실행*
