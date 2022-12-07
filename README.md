@@ -1,5 +1,5 @@
 # geuldobi
-# ㅇㅣ거 수정했어요!!!!
+# !!!팀원 여러분 ㅇㅣ거 수정했어요!!!!
 ```python
 2) 모델 불러오기(python)
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
