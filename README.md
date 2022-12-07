@@ -7,6 +7,8 @@ tokenizer = AutoTokenizer.from_pretrained("yuniv/KoSST")
 model = AutoModelForSeq2SeqLM.from_pretrained("yuniv/KoSST")
 ```
 이거 없애고 코드에 넣어버린 다음에 바로 .py 파일 실행하게!
+
+이 밑에서부터 찐 시작~
 ---
 ---
 ## 프로젝트 '글도비'
@@ -20,7 +22,12 @@ model = AutoModelForSeq2SeqLM.from_pretrained("yuniv/KoSST")
 - UI 프로토타입 및 시연 영상 : [링크]
 
 --- 
+```
+필요한 라이브러리 install까지 포함한 .ipynb을 기능별로 업로드해두었습니다.
+코랩에서 해당 파일로 실행할 경우에는 1), 2)번 과정을 생략할 수 있습니다.
+```
 ## 1. 격식-비격식 전환 기능
+*코랩에서 실행하고자 하는 경우 paraphrase.ipynb 실행*
 ### 1) 실행 환경 구축
 **transformers 설치**
 
@@ -43,6 +50,7 @@ paraphrasing("<s>"+[바꿀 문장]+"</s>")
 
 ---
 ## 2. 맞춤법 교정 모델
+*코랩에서 실행하고자 하는 경우 correcting.ipynb 실행*
 ### 1) 실행 환경 구축
 **transformers 설치**
 
@@ -67,6 +75,7 @@ correcting("<s>"+[바꿀 문장]"</s>")
 
 --- 
 ## 3. 문맥에 맞는 유의어 추천 기능
+*코랩에서 실행하고자 하는 경우 syn_recommend.ipynb 실행*
 ### 1) 실행 환경 구축
 **transformers, konlpy 설치**
 
