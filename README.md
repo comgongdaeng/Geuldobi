@@ -93,5 +93,9 @@ correcting("<s>"+[바꿀 문장]"</s>")
 ```
 ### 2) syn_recommend.py 실행
 문장 입력, 대체하고 싶은 단어 선택, 추천 단어 확인으로 이루어진 recommend() 함수가 저장된 python 코드입니다.
+
+현재 **Okt 형태소 분석기가 'Noun'으로 판단하는 한 글자 단어로 시작하는 문장**을 입력하면 에러가 발생하고 있습니다. 
+
+수정하기 전까지는 그를 제외한 문장으로 실행해주시기를 부탁드립니다.🥲
 ### 3) 실행 예시
 ![image](https://user-images.githubusercontent.com/109388787/205956564-82b44e44-3e91-4f6a-9bff-8a28c5e42f03.png)
