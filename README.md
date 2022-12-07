@@ -31,6 +31,7 @@ model = AutoModelForSeq2SeqLM.from_pretrained("yuniv/KoSST")
 ```
 ### 2) paraphrase.py 실행
 직접 학습시킨 모델을 불러오는 코드와
+
 비격식 input 문장을 격식 output으로 전환해주는 `paraphrasing(str)` 함수가 정의되어 있습니다.
 ### 3) 해보기
 ```python
@@ -54,6 +55,7 @@ paraphrasing("<s>"+[바꿀 문장]+"</s>")
 
 ### 2) correcting.py 실행
 직접 학습시킨 모델을 불러오는 코드와
+
 input 문장의 맞춤법을 교정해주는 함수 `correcting(str)`이 정의되어 있습니다.
 ### 3) 해보기
 ```python
