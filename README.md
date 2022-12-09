@@ -52,7 +52,7 @@
 ```
 ---
 ## 2. 맞춤법 교정 모델
-*코랩에서 실행하고자 하는 경우 correcting.ipynb 실행*
+*코랩에서 실행하고자 하는 경우 KoSC.ipynb 실행*
 ### 1) 실행 환경 구축
 **transformers 설치**
 
@@ -63,7 +63,7 @@
 ```
 
 
-### 2) correcting.py 실행
+### 2) KoSC.py 실행
 직접 학습시킨 모델을 불러오는 코드와
 
 input 문장의 맞춤법을 교정해주는 함수 `correcting(str)`이 정의되어 있습니다.
