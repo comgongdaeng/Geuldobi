@@ -1,16 +1,4 @@
 # geuldobi
-# !!!팀원 여러분 ㅇㅣ거 수정했어요!!!!
-```python
-2) 모델 불러오기(python)
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
-tokenizer = AutoTokenizer.from_pretrained("yuniv/KoSST")
-model = AutoModelForSeq2SeqLM.from_pretrained("yuniv/KoSST")
-```
-이거 없애고 코드에 넣어버린 다음에 바로 .py 파일 실행하게!
-
-이 밑에서부터 찐 시작~
----
----
 ## 프로젝트 '글도비'
 - 편한 글쓰기를 도와주는 크롬 익스텐션 서비스
     - 구현 예정 기능 (구현 중인 기능은 현재 구현 상황을 이 레포지토리에 올려두었음.)
@@ -41,12 +29,27 @@ model = AutoModelForSeq2SeqLM.from_pretrained("yuniv/KoSST")
 비격식 input 문장을 격식 output으로 전환해주는 `paraphrasing(str)` 함수가 정의되어 있습니다.
 ### 3) 해보기
 ```python
-paraphrasing("<s>"+[바꿀 문장]+"</s>")
+>>> paraphrasing("<s>"+[바꿀 문장]+"</s>")
 ```    
  위의 코드를 사용해서 문장을 비격식체 -> 격식체로 전환할 수 있습니다.
 ### 4) 실행 예시
-![image](https://user-images.githubusercontent.com/109388787/205741229-f9bd6189-9eb8-43cd-b35a-12f4778f584f.png)
+```python
+>>> paraphrasing("<s>메일로 ppt 파일 보냈어</s>")
+메일로 ppt 파일 보내드렸습니다.
 
+```
+```python
+>>> paraphrasing("<s>반품 하고 싶어. 어디로 연락해야돼?</s>")
+반품하고 싶습니다. 어디로 연락해야 합니까
+```
+```python
+>>> paraphrasing("<s>아 모르겠어 진짜 미안</s>")
+아 모르겠습니다 진짜 죄송합니다
+```
+```python
+>>> paraphrasing("<s>우리 한국 이번에 이길까?</s>")
+우리 한국 이번에 이길 수 있을까요?
+```
 ---
 ## 2. 맞춤법 교정 모델
 *코랩에서 실행하고자 하는 경우 correcting.ipynb 실행*
@@ -66,12 +69,38 @@ paraphrasing("<s>"+[바꿀 문장]+"</s>")
 input 문장의 맞춤법을 교정해주는 함수 `correcting(str)`이 정의되어 있습니다.
 ### 3) 해보기
 ```python
-correcting("<s>"+[바꿀 문장]"</s>")
+>>> correcting("<s>"+[바꿀 문장]"</s>")
 ```    
  위의 코드를 사용해서 [바꿀 문장]을 맞춤법이 교정된 문장으로 전환할 수 있습니다.
  ### 4)  실행 예시
-![image](https://user-images.githubusercontent.com/109388787/205741127-f1b3c1a1-567d-4477-9a9f-a210815b83e7.png)
-
+ ```python
+>>> correcting("<s>어제 나랑 가치 떡뽁이 먹엇잖아.</s>")
+어제 나랑 같이 떡볶이 먹었잖아.
+```
+```python
+>>> correcting("<s>ㄴㅓ 이름이 머야?</s>")
+너 이름이 뭐야?
+```
+```python
+>>> correcting("<s>내가 세상에서 젤 조아하는 음식은 초밥이야.</s>")
+내가 세상에서 제일 좋아하는 음식은 초밥이야.
+```
+```python
+>>> correcting("<s>맞춤뻡을 잘 지켜야되</s>")
+규칙을 잘 지켜야한다
+```
+```python
+>>> correcting("<s>난 니가 왜 그러케 생각하는지 모르게써.</s>")
+난 네가 왜 그렇게 생각하는지 모르겠어.
+```
+```python
+>>> correcting("<s>컴퓨터는 완젼 멍충해.</s>")
+컴퓨터는 완전히 멍청해.
+```
+```python
+>>> correcting("<s>내가 않했어.</s>")
+내가 안 했어.
+```
 --- 
 ## 3. 문맥에 맞는 유의어 추천 기능
 *코랩에서 실행하고자 하는 경우 syn_recommend.ipynb 실행*
@@ -98,4 +127,22 @@ correcting("<s>"+[바꿀 문장]"</s>")
 
 수정하기 전까지는 그를 제외한 문장으로 실행해주시기를 부탁드립니다.🥲
 ### 3) 실행 예시
-![image](https://user-images.githubusercontent.com/109388787/205956564-82b44e44-3e91-4f6a-9bff-8a28c5e42f03.png)
+```python
+>>> recommend()
+문장을 입력해주세요: 여기에 문장을 적어보면 바꿀 수 있는 단어를 알려줄 거야  
+
+* 과정 확인용 출력:
+[('여기', 'Noun'), ('에', 'Josa'), ('문장', 'Noun'), ('을', 'Josa'), ('적어', 'Verb'), ('보면', 'Verb'), ('바꿀', 'Verb'), ('수', 'Noun'), ('있는', 'Adjective'), ('단어', 'Noun'), ('를', 'Josa'), ('알려줄', 'Verb'), ('거야', 'Eomi')]  
+바꿀 단어를 선택해주세요.  
+1 .  여기  
+2 .  문장  
+3 .  수  
+4 . 있는  
+5 .  단어  
+바꿀 단어의 번호(숫자만 입력하세요) : `2`  
+* 과정 확인용 출력:
+['여기', '에', '[MASK]', '을', '적어', '보면', '바꿀', '수', '있는', '단어', '를', '알려줄', '거야']  
+글
+문법
+낱말
+```
