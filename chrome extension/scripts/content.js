@@ -18,7 +18,7 @@ const syn = document.createElement("span"); syn.id = "syn";// tooltip.className 
   const $meaning = document.createElement("p"); $meaning.id = "meaning";
   const $meaningContainer = document.createElement("div"); $meaningContainer.className = "container"; $meaningContainer.id ="meaningContainer";
   $meaningContainer.style.overflow = "auto";
-  $meaningContainer.style.maxHeight = "60px"; 
+  $meaningContainer.style.maxHeight = "auto"; 
   $meaningContainer.appendChild($meaning);
 
   const $more = document.createElement("button"); $more.id = "more";

@@ -23,76 +23,68 @@ hr {
 
 }
 
-/*
-  button {
-    float:right;
-  }
-  */
-.switches {
-  float: right;
-  /* hidden */
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-.switch_label {
+.switch {
   position: relative;
-  cursor: pointer;
   display: inline-block;
-  width: 58px;
-  height: 28px;
-  background: #fff;
-  border: 2px solid #11714d;/*#36ae92;*/
-  border-radius: 20px;
-  transition: 0.2s;
+  width: 60px;
+  height: 30px;
+  vertical-align:middle;
 }
 
-.switch_label:hover {
-  background: #efefef;
-}
+/* Hide default HTML checkbox */
+.switch input {display:none;}
 
-.onf_btn {
+/* The slider */
+.slider {
   position: absolute;
-  top: 5px;
-  left: 5px;
-  display: inline-block;
-  width: 19px;
-  height: 19px;
-  border-radius: 20px;
-  background: #11714d;
-  transition: 0.2s;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
-/* checking style */
-.switches:checked+.switch_label {
-  background: #00462a;
-  border: 2px solid #00462a;
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  left: 4px;
+  bottom: 3.5px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
-.switches:checked+.switch_label:hover {
-  background: #00462a;
+input:checked + .slider {
+  background-color: #00462a;
 }
 
-/* move */
-#onsite:checked+.switch_label .onf_btn {
-  left: 33px;
-  background: #fff;
-  box-shadow: 1px 2px 3px #00000020;
+input:focus + .slider {
+  box-shadow: 0 0 1px #00462a;
 }
 
-#onsite:checked+.switch_label {
-  background: #00462a;
-  border: 2px solid #00462a;
+input:checked + .slider:before {
+  -webkit-transform: translateX(28px);
+  -ms-transform: translateX(28px);
+  transform: translateX(28px);
 }
 
-#onsite:checked+.switch_label:hover {
-  background: #00462a;
+/* Rounded sliders */
+.slider.round {
+  border-radius: 30px;
 }
 
-/* move */
-#onsite:checked+.switch_label .onf_btn {
-  left: 33px;
-  background: #fff;
-  box-shadow: 1px 2px 3px #00000020;
+.slider.round:before {
+  border-radius: 50%;
+}
+
+p {
+	margin:0px;
+	display:inline-block;
+	font-size:15px;
+	font-weight:bold;
 }
