@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+
+h1, div, span {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 800;
+}
+
+/*#logo {
+  height: 60px;
+  width: 60px;
+}
+*/
+
+hr {
+  width: 350px;
+  align-items: left;
+  background-color: rgb(188, 188, 188);
+}
+
+.container {
+  display: flex;
+
+}
+
+/*
+  button {
+    float:right;
+  }
+  */
+.switches {
+  float: right;
+  /* hidden */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.switch_label {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  width: 58px;
+  height: 28px;
+  background: #fff;
+  border: 2px solid #11714d;/*#36ae92;*/
+  border-radius: 20px;
+  transition: 0.2s;
+}
+
+.switch_label:hover {
+  background: #efefef;
+}
+
+.onf_btn {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  border-radius: 20px;
+  background: #11714d;
+  transition: 0.2s;
+}
+
+/* checking style */
+.switches:checked+.switch_label {
+  background: #00462a;
+  border: 2px solid #00462a;
+}
+
+.switches:checked+.switch_label:hover {
+  background: #00462a;
+}
+
+/* move */
+#onsite:checked+.switch_label .onf_btn {
+  left: 33px;
+  background: #fff;
+  box-shadow: 1px 2px 3px #00000020;
+}
+
+#onsite:checked+.switch_label {
+  background: #00462a;
+  border: 2px solid #00462a;
+}
+
+#onsite:checked+.switch_label:hover {
+  background: #00462a;
+}
+
+/* move */
+#onsite:checked+.switch_label .onf_btn {
+  left: 33px;
+  background: #fff;
+  box-shadow: 1px 2px 3px #00000020;
+}

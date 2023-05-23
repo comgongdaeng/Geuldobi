@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-type" content="text/html"; charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+  
+</head>
+
+<body>
+    
+  <div class="container" style="justify-content: space-between;"><!-- width: 1000px;-->
+    <div style="border: 1px dashed #11714d; padding: 10px; "> <!-- #bcc924;-->
+      <h1><img src="images/geuldobi.png" alt="" id = "logo" style="height: 32px; width: 32px;"> 글도비</h1>
+      <hr>
+      <!--로그인한 후-->
+      <div style="width:330px;" class="item">
+        <div><span id="site">https://mail.google.com/</span>에서<br>글도비 검사 서비스 켜기
+          <input type="checkbox" class="switches" id="onsite" >
+          <label for="switch" class="switch_label" style="float:right">
+            <span class="onf_btn"></span>
+          </label>
+          <hr>
+          <div>맞춤법 검사
+            <input type="checkbox" class="switches" id="grammar" >
+          <label for="switch" class="switch_label" style="float:right">
+            <span class="onf_btn"></span>
+          </label>
+          </div>
+          <hr>
+          <div>격식체 전환
+            <input type="checkbox" class="switches" id="longSentence" >
+          <label for="switch" class="switch_label" style="float:right">
+            <span class="onf_btn"></span>
+          </label>
+          <hr>
+            <div>유/동의어 추천
+              <!--<input type='button' class='btn' name='btn' value='켜다' style="float: right;">-->
+              <input type="checkbox" class="switches" id="duplication" >
+          <label for="switch" class="switch_label" style="float:right">
+            <span class="onf_btn"></span>
+          </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>

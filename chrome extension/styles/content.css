@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+
+span.error {
+	text-decoration: underline;
+}
+
+#formal {
+	display: none;
+	position: absolute;
+	height: auto;
+	width: calc(30%);
+	background-color: white;
+	border: solid 1px #a6b9b2;
+	border-radius: 15px;
+	padding: 13px 0px 0px 0px;/*위아래 여백을 13으로, 왼쪽 오른쪽 여백을 0으로(마우스 hover 시 색 꽉 채우기 위함..)*/
+	font-family: 'Nanum Gothic', sans-serif;
+	box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+#syn {
+	display: none;
+	position: absolute;
+	height: calc(50%);
+	width: calc(30%);
+	background-color: white;
+	border: solid 1px #a6b9b2;
+	border-radius: 15px;
+	padding: 13px 0px 0px 0px;/*위아래 여백을 13으로, 왼쪽 오른쪽 여백을 0으로(마우스 hover 시 색 꽉 채우기 위함..)*/
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size: 12px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3);
+	
+}
+
+#grammar {
+	display: none;
+	position: absolute;
+	height: 100px;
+	width: 120px;
+	background-color: white;
+	border: solid 1px #11714d;
+	border-radius: 30px;
+	padding: 13px 0px;/*위아래 여백을 13으로, 왼쪽 오른쪽 여백을 0으로(마우스 hover 시 색 꽉 채우기 위함..)*/
+	font-family: 'Nanum Gothic', sans-serif;
+	
+}
+
+#correct {
+	font-size: 12px;
+    height: 50;
+    width: 120;
+    padding: 13px;
+    margin: 0;
+}
+
+#dismiss {
+	font-size: 12px;
+    height: 50;
+    width: 120;
+    padding: 13px;
+    margin: 0;
+}
+
+.button {
+	display: flex;
+}
+
+.non-draggable {
+	-ms-user-select: none;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+#rec_title {
+	margin: 6px 13px;
+	padding: 0;
+	color: #51931e;
+}
+
+.title {
+	color: #51931e;
+	font-size: 12px;
+	justify-content: flex-start;
+	text-align: left;
+	padding: 0px 13px;/*툴팁 테두리의 양옆 패딩 줄인 관계로 나머지에 추가..*/
+    margin: 0;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+#dragged {
+	color: #105b40;
+	height: auto;
+	font-size: 16px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 700;
+	text-align: left;
+	padding: 0px;/*툴팁 테두리의 양옆 패딩 줄인 관계로 나머지에 추가..*/
+	margin: 0px;
+}
+
+#target {
+	color: #11714d;
+	font-size: 17px;
+	text-align: left;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
+	padding: 0px 13px;/*툴팁 테두리의 양옆 패딩 줄인 관계로 나머지에 추가..*/
+	margin: 3px 1px;
+}
+
+#another, #more, #rec_another {
+	background-color: #62b124;
+	color: rgb(255, 255, 255);
+	height: 25px;
+	width: 120;
+	border-radius: 25px;
+	font-size: 13px;
+	float: left;
+	border: none;
+	box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.35);
+	/* 가로 - 왼쪽으로 
+	justify-content: center;*/
+	/* 세로 - 하단으로 */
+	margin: 5px 0px 13px 13px; /*13px;/*툴팁 테두리의 양옆 패딩 줄인 관계로 나머지에 추가..*/
+}
+
+#another:hover, #more:hover,#rec_another:hover {
+	background-color: #569f1e;
+	color: white;	
+}
+
+#another:active, #more:active, #rec_another:active{
+	margin: 6px 0px 12px 14px;
+	background-color: #4d8f1a;
+	box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.35);
+	/*버튼 눌리는 것처럼 보이게*/
+}
+
+#apply {
+	color: white;
+	background-color: #11714d;
+	font-size: 15px;
+	border: none;
+	float: right; /* 가로 - 왼쪽으로 */
+	justify-content: flex-end; /* 세로 - 하단으로 */
+	margin-right: 13px;
+	border-radius: 5px;
+	padding: 2px 12px;
+	margin: 5px 13px 13px 0px;
+	box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.35);
+}
+
+#apply:hover {
+	background-color: #093f2b;
+	color: white;	
+}
+
+#apply:active{
+	margin: 6px 12px 12px 0px;
+	box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.35);
+	/*버튼 눌리는 것처럼 보이게*/
+}
+
+.triangle{
+	padding: auto;
+}
+
+
+.words {
+    height: 30px;
+    width: 250;
+    padding: 6px 0px 0px 20px; 
+    margin: 0;
+	font-size: 15px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 500;
+}
+
+.words:hover {
+    background-color: #11714d;
+	color:white;
+}
+
+.morebtn {
+  content: url(https://cc2022-2071024.s3.ap-northeast-1.amazonaws.com/more.png
+);
+}
+
+.triangle {
+  content: url(https://cc2022-2071024.s3.ap-northeast-1.amazonaws.com/triangle.png
+);
+}
+.again {
+  content: url(https://cc2022-2071024.s3.ap-northeast-1.amazonaws.com/loading_32.png);
+}
+
+#sidebar {
+	position: fixed;
+	right: 0px;
+	top: 0px;
+	z-index: 9999;
+	width: 290px;
+	height: 100%;
+	background-color: white;
+	overflow :auto;
+	/*color:black;
+	font-size: 30px;*/
+}
+
+#dic_more {
+	text-decoration: underline;
+	color: #51931e;
+	cursor: pointer;
+	text-align: right;
+	margin: 5px 13px;/*툴팁 테두리의 양옆 패딩 줄인 관계로 나머지에 추가..*/
+}
+
+.container{
+	padding: 0px 15px;/*툴팁 테두리의 양옆 패딩 줄인 관계로 나머지에 추가..*/
+	overflow : auto;
+	height: auto; 
+}
+
+  
+  /* 스크롤바 설정*/
+  .container::-webkit-scrollbar{
+	width: 20px;
+  }
+  
+  /* 스크롤바 막대 설정*/
+  .container::-webkit-scrollbar-thumb{
+	background-color: rgb(160, 160, 160);
+	/* 스크롤바 둥글게 설정    */
+	border-radius: 10px; 
+	border: 7px solid rgba(255, 255, 255, 1);
+  }
+  
+  /* 스크롤바 뒷 배경 설정*/
+  .container::-webkit-scrollbar-track{
+	background-color: rgba(0,0,0,0);
+  }
+
+#draggedContainer{
+	color: #093f2b;
+	padding: auto;
+	margin: 5px 0px;
+}
+
+#meaning{
+	margin: 0px;
+	font-size: 13px;
+	margin: 2px 0px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 300;
+}
+
+
+/* #meaningContainer{
+	
+	margin: 0;
+	padding: 0px 5px 0px 5px;
+} */

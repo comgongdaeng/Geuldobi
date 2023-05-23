@@ -1,0 +1,46 @@
+{
+    "manifest_version": 3,
+    "name": "글도비",
+    "version": "1.0",
+    "description": "글을 돕다.",
+    "background": {
+        "service_worker": "scripts/background.js"
+    },
+    "action": {
+        "default_title": "글도비",
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "16": "images/geuldobi.png",
+        "32": "images/geuldobi.png",
+        "48": "images/geuldobi.png",
+        "128": "images/geuldobi.png"
+    },
+    "permissions": ["cookies", "storage", "activeTab", "scripting", "tabs", "<all_urls>", "proxy"], 
+    "host_permissions" : ["https://*/"],
+    "content_scripts": [
+        {
+            "js": [
+                "scripts/content.js", "scripts/content_gen.js", "scripts/content_word.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ],
+            "exclude_matches": [
+                "https://docs.google.com/document/*",
+                "https://*.notion.so/*",
+                "https://*.facebook.com/*"
+            ],
+            "css": ["styles/content.css"]
+        }, 
+        {
+            "js": [
+                "scripts/content_iframe.js"
+            ],
+            "matches": [
+                "https://docs.google.com/document/*"
+            ],
+            "css": ["styles/content.css"]
+        }
+    ]
+}
