@@ -18,7 +18,7 @@ const syn = document.createElement("span"); syn.id = "syn";// tooltip.className 
   const $meaning = document.createElement("p"); $meaning.id = "meaning";
   const $meaningContainer = document.createElement("div"); $meaningContainer.className = "container"; $meaningContainer.id ="meaningContainer";
   $meaningContainer.style.overflow = "auto";
-  $meaningContainer.style.maxHeight = "auto"; 
+  $meaningContainer.style.maxHeight = "auto";  
   $meaningContainer.appendChild($meaning);
 
   const $more = document.createElement("button"); $more.id = "more";
@@ -103,7 +103,7 @@ function addUnderline() {
   for (let i = 0; i < divs.length; i++) {
     const div = divs[i];
     if (div.innerHTML.includes("감사하빈다")) {
-      div.innerHTML = div.innerHTML.replace(/감사하빈다/g, '<span id="wrong">감사하빈다</span>');
+      div.innerHTML = div.innerHTML.replace("감사하빈다", '<span id="wrong">감사하빈다</span>');
 
       const wrongSpan = div.querySelector("#wrong");
       wrongSpan.style.textDecoration = "underline red";
@@ -150,7 +150,6 @@ function getMeaning(res) {
         //word_init()
     //syn.append($title_w, $target, $meaning, $dic_more, $more, $br, $rec_title, $rec1, $rec2, $rec3, $rec_another);
     
-    //console.log("여기까지 함")
 }
 
 
@@ -197,7 +196,7 @@ document.addEventListener("mouseup", function (event) {
                 
               }
             } else {
-              let tr = getMeaning(result);
+              getMeaning(result);
               syn.style.display = "block";
               syn.style.visibility = "visible";
               formal.style.visibility="hidden";
@@ -208,7 +207,19 @@ document.addEventListener("mouseup", function (event) {
                 document.getElementById('formal').remove();
               }
               
-              getSyn(selection);
+              getSyn(selection).then( data => {
+                console.log(synonyms);
+                if(synonyms["rec_result"] == "okt pos bad... error") {
+                  $more.style.display = "none";
+                } else {
+                  //let count = result["rec_result"].length;
+                  //let pg_num = count/3;
+                  show_results(synonyms, pg_num);
+                  console.log(synonyms);
+                }
+              });
+
+
             }
           });
 
@@ -229,6 +240,46 @@ document.addEventListener("mouseup", function (event) {
         
         isDragging = false;}
   });
+
+  function show_results(synonyms, idx) {
+    pg_num = idx;
+    start_index = (pg_num - 1) *3;
+    end_index = pg_num*3;
+    console.log("st idx, end idx, length", start_index, end_index,synonyms["rec_result"].length )
+    if(end_index==synonyms["rec_result"].length) {
+      console.log("바뀌기전 pgnum", pg_num)
+      pg_num = 1;
+      $rec1.innerHTML = `<img class=triangle style="width:16px; height:15px";> ` + synonyms["rec_result"][start_index];
+      $rec2.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][start_index+1];
+      $rec3.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][start_index+2];
+      console.log("바뀐 pgnum", pg_num)
+    }
+    else if(end_index>synonyms["rec_result"].length) {
+      console.log("바뀌기전 pgnum", pg_num)
+      pg_num = 1;
+      if(end_index-synonyms["rec_result"].length==1) {
+        $rec1.innerHTML = `<img class=triangle style="width:16px; height:15px";> ` + synonyms["rec_result"][start_index];
+      $rec2.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][start_index+1];
+      $rec3.style.display = 'none';
+      console.log("바뀐 pgnum", pg_num)
+      }
+      else if(end_index-synonyms["rec_result"].length==2) {
+        $rec1.innerHTML = `<img class=triangle style="width:16px; height:15px";> ` + synonyms["rec_result"][start_index];
+      $rec2.style.display = "none";
+      $rec3.style.display = 'none';
+      console.log("바뀐 pgnum", pg_num)
+      }
+    } else {
+      console.log("바뀌기전 pgnum", pg_num)
+      pg_num++;
+      $rec1.innerHTML = `<img class=triangle style="width:16px; height:15px";> ` + synonyms["rec_result"][start_index];
+      $rec2.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][start_index+1];
+      $rec3.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][start_index+2];
+      console.log("바뀐 pgnum", pg_num)
+    }
+
+  }
+
 
 
   // 드래그 시작 위치로 툴팁 위치 지정
