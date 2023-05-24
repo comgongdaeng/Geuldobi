@@ -212,6 +212,44 @@ span.error {
 	font-size: 30px;*/
 }
 
+.more_title{
+	font-weight: bold;
+	text-align: center;
+}
+
+.sidebar-box {
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	padding: 10px;
+	margin-bottom: 15px;
+	/*border: 3px solid gray;*/
+	box-shadow: 1px 1px 1px 1px rgba(183, 183, 183, 0.52);
+  }
+  
+  .dic-word {
+	font-weight: bold;
+  }
+  
+  .sup-no {
+	font-style: italic;
+	font-size: smaller;
+  }
+  
+  .pos {
+	margin-top: 5px;
+	color: rgb(104, 104, 104);
+  }
+  
+  .dic-meaning {
+	margin-top: 5px;
+	/*text-decoration: underline;*/
+  }
+  
+  /* 선택적으로 스타일을 조정할 수 있습니다 */
+  .sidebar-box:last-child {
+	margin-bottom: 0;
+  }
+
 #dic_more {
 	text-decoration: underline;
 	color: #51931e;
