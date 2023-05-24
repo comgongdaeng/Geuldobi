@@ -9,6 +9,13 @@
 //   }
 // });
 
+chrome.webNavigation.onBeforeNavigate.addListener(function(details) {
+  chrome.tabs.sendMessage(details.tabId, { action: 'beforeRefresh' });
+});
+
+chrome.tabs.onRemoved.addListener(function(tabId, removeInfo) {
+  chrome.tabs.sendMessage(tabId, { action: 'beforeClose' });
+});
 
 // chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 //   if (request.isChecked === false) {
