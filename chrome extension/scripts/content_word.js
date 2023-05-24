@@ -2,7 +2,7 @@ console.log("content_word is loaded");
 
   //init 함수에 넣어서 되돌리기
   function word_init() {
-    syn.style.height = "170px";
+    syn.style.height = "auto";
   $more.style.display= "block";    $br.style.display = "block"; $dic_more.style.display = "block"; $meaningContainer.style.display = "block";
     $rec_title.style.display="none"; $rec1.style.display="none"; $rec2.style.display="none"; $rec3.style.display="none"; $rec_another.style.display="none";
     $rec1.innerHTML = `<div style ="text-align:center";>
