@@ -1,8 +1,11 @@
 console.log("content_word is loaded");
-
+let pg_num = 1; //단어 추천 인덱스 접근 위한 변수
   //init 함수에 넣어서 되돌리기
   function word_init() {
+    console.log("word_init")
     syn.style.height = "auto";
+    pg_num = 1;
+    //syn.style.height = "170px";
   $more.style.display= "block";    $br.style.display = "block"; $dic_more.style.display = "block"; $meaningContainer.style.display = "block";
     $rec_title.style.display="none"; $rec1.style.display="none"; $rec2.style.display="none"; $rec3.style.display="none"; $rec_another.style.display="none";
     $rec1.innerHTML = `<div style ="text-align:center";>
@@ -95,12 +98,20 @@ async function getSyn(selection) {
   console.log("sentence: ", sentence);
   console.log("MaskWord: ", selectedWord);
   if(sentence){
-  await fetch(url).then((response) => response.json())
-      .then((data) => {synonyms= data; console.log(data)});
-  if(synonyms["rec_result"][0]) $rec1.innerHTML = `<img class=triangle style="width:16px; height:15px";> ` + synonyms["rec_result"][0];
+
+    await fetch(url).then((response) => response.json())
+    .then((data) => {synonyms= data; console.log(data)});
+ /*  .catch((error)=> {
+      console.error(error);
+      return "Internal Server Error";
+     })
+
+     if(synonyms["rec_result"][0]) $rec1.innerHTML = `<img class=triangle style="width:16px; height:15px";> ` + synonyms["rec_result"][0];
   if(synonyms["rec_result"][1]) $rec2.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][1];
-  if(synonyms["rec_result"][2]) $rec3.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][2];
-  } 
+  if(synonyms["rec_result"][2]) $rec3.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][2];*/
+  
+} 
+  
 }
 
 
@@ -115,21 +126,9 @@ async function getSyn(selection) {
 // });
 
 $rec_another.addEventListener("mousedown", (event)=>{
-  if($rec1.innerHTML.includes(synonyms["result1"][0])) {
-    $rec1.innerHTML += synonyms["result2"][0];
-  $rec2.innerHTML += synonyms["result2"][1];
-  $rec3.innerHTML += synonyms["result2"][2];
-  }
-  if($rec1.innerHTML.includes(synonyms["result2"][0])) {
-    $rec1.innerHTML += synonyms["result3"][0];
-  $rec2.innerHTML += synonyms["result3"][1];
-  $rec3.innerHTML += synonyms["result3"][2];
-  }
-  if($rec1.innerHTML.includes(synonyms["result3"][0])){
-  $rec1.innerHTML += synonyms["result1"][0];
-  $rec2.innerHTML += synonyms["result1"][1];
-  $rec3.innerHTML += synonyms["result1"][2];
-  }
+  event.stopImmediatePropagation();
+  show_results(synonyms, pg_num)
+  console.log("clicked")
 });
 
 function apply_w(suggestion) {

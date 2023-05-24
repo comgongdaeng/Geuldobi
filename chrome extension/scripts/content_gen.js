@@ -5,31 +5,10 @@ console.log("content_gen is loaded");
 // content script에서
 chrome.runtime.sendMessage({ type: "change_input_value", value: "hello@example.com" });
 
-/**.then(result => {
-            console.log("under res:", result);
-            if (result == "no data") {
-              KoSST(selec_text);
-              console.log("됐당");
-            } else {
-              // getMeaning(res);
-              // getSyn(selection);
-            }
-          }); */
-
-
 $another.addEventListener('mousedown', (event) => {
     KoSST(selec_text);
     event.stopImmediatePropagation();
-  /*
-  let res;
-    let url = domain +"/models/KoSST?user_sentence=" + selec_text
-    console.log("격식 비격식 호출됨");
-    fetch(url).then((response) =>response.json())
-        .then((data) =>{res = data; console.log(data)});
-        machine = res["user_sentence"];
-        $dragged.innerText = machine//selec_text;*/
 })
-
 
 //init 함수에 넣어서 격식/ 비격식 되돌리기 
 function init_formal() {
@@ -53,7 +32,7 @@ let selec_text;
 let applied = false;
 
 $apply.addEventListener("mousedown", (event) => {
-
+/*
   if (applied) {
     init_formal()
     $dragged.innerText = machine;
@@ -61,7 +40,7 @@ $apply.addEventListener("mousedown", (event) => {
     console.log("applied==true")
     event.stopImmediatePropagation();
   }
-  else {
+  else {*/
     event.stopImmediatePropagation();
 
     $title.innerHTML = "<strong> 원본 문장 </strong>";
@@ -75,6 +54,7 @@ $apply.addEventListener("mousedown", (event) => {
     applied = true;
     const $text = document.getElementsByTagName('div');
     formal.style.display = "none";
+    console.log("applid 내에서")
     for (let i = 0; i < $text.length; i++) {
       if ($text[i].innerHTML.includes(selec_text)) {
         $text[i].innerHTML = $text[i].innerHTML.replace(selec_text, machine);
@@ -87,42 +67,5 @@ $apply.addEventListener("mousedown", (event) => {
     $tooltips[0].parentNode.removeChild($tooltips[0]);
   }
 */
-  }
+  //}
 });
-
-
-
-/*
-///////////////////////////////////
-//툴팁 이벤트
-function formal_tooltip(){
-  let clickedElement = event.target;
-  while (clickedElement) {
-    if (clickedElement.id === 'formal') {
-      event.stopPropagation();
-      return;
-    }
-    clickedElement = clickedElement.parentElement;
-  }
-  if (!applied) {
-    const selection = window.getSelection()
-    if (selec_text) {
-      $dragged.innerText = response["user_sentence"];//selec_text;
-
-      // 요소에 마우스 진입시 툴팁 보이기
-      if (selec_text.trim().length !== 0) {
-        isDragging = true;
-        formal.style.display = 'block';
-        //else tooltip.style.display = 'none';
-        // 툴팁을 요소에 추가
-        parentElement.append(formal);
-      }
-
-  }
-  else {//사용자가 적용하기를 누른 후 여백클릭....
-    init_formal()
-    $dragged.innerText = machine;
-    applied = false;
-    formal.style.display = 'none';
-  }
-}}*/
