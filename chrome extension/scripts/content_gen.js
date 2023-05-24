@@ -52,18 +52,38 @@ $apply.addEventListener("mousedown", (event) => {
  </div>`
     console.log("applied==false")
     applied = true;
-    const $text = document.getElementsByTagName('div');
-    const $element = document.querySelector('[role="textbox"]'); //테스트용
-    console.log($text.in);
-    console.log($element);//테스트용
     formal.style.display = "none";
+    //const $text = document.getElementsByTagName('div');
+    //const $text_mail = document.querySelector('[role="textbox"]').getElementsByTagName('div');
+    const $test_mail = document.getElementById(':68').getElementsByTagName('div');
+
+    console.log($test_mail);
+    console.log($test_mail[0].innerHTML);
+    
     console.log("applid 내에서")
+
+    //아마도 기존 코드
     // for (let i = 0; i < $text.length; i++) {
     //   if ($text[i].innerHTML.includes(selec_text)) {
     //     $text[i].innerHTML = $text[i].innerHTML.replace(selec_text, machine);
     //     break;
     //   }
     // }
+
+    //$textbox_mail.innerText.replace(selec_text, machine);
+
+
+    for (let i = 0; i < $test_mail.length; i++) {
+      if ($test_mail[i].innerHTML.includes(selec_text)) {
+        $test_mail[i].innerHTML = $test_mail[i].innerHTML.replace(selec_text, machine);
+        break;
+      }
+    }
+    if (document.getElementById('formal') != null){
+      console.log(document.getElementById('formal'));
+      document.getElementById('formal').remove();
+    }
+
     /*
     const $tooltips = document.getElementsByName("#tooltip");
   while ($tooltips.length > 0) {

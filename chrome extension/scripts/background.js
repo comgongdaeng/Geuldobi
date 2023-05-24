@@ -17,16 +17,6 @@ chrome.tabs.onRemoved.addListener(function(tabId, removeInfo) {
   chrome.tabs.sendMessage(tabId, { action: 'beforeClose' });
 });
 
-// chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-//   if (request.isChecked === false) {
-//     // isChecked이 false일 경우 익스텐션을 비활성화합니다.
-//     chrome.runtime.sendMessage({ action: 'disableExtension' });
-//   } else if (request.isChecked === true) {
-//     // isChecked이 true일 경우 익스텐션을 활성화합니다.
-//     chrome.runtime.sendMessage({ action: 'enableExtension' });
-//   }
-// });
-
 
 /*
 chrome.action.onClicked.addListener(async (tab) => {

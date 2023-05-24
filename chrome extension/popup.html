@@ -11,26 +11,30 @@
 <body>
   <div class="container" style="justify-content: space-between;"><!-- width: 1000px;-->
     <div style="border: 1px dashed #11714d; padding: 10px; "> <!-- #bcc924;-->
-      <h1><img src="images/geuldobi.png" alt="" id = "logo" style="height: 32px; width: 32px;"> 글도비</h1>
+      <h1><img src="images/geuldobi.png" alt="" id = "logo" style="height: 34px; width: 34px;"> 글도비</h1>
       <hr>
       <!--로그인한 후-->
       <div style="width:330px;" class="item">
-        <div><span id="site">https://mail.google.com/</span>에서<br>글도비 검사 서비스 켜기
+        <div><span id="site" class="itemsName">https://mail.google.com/</span>에서<br><span class="itemsName">글도비 검사 서비스 ON/OFF</span>
+
+          <!-- <p id="gdbOFF">OFF</p><p id="gdbON" style="display:none;">ON</p> -->
+          
           <label class="switch">
             <input type="checkbox" id="gdbSwitch">
             <span class="slider round"></span>
           </label>
-          <!-- <p id="gdbOFF">OFF</p><p id="gdbON" style="display:none;">ON</p> -->
           <hr>
-          <div>맞춤법 검사
+          <div><span class="itemsName">맞춤법 검사  </span>
             <label class="switch">
-              <input type="checkbox" id="CorSwitch">
-              <span class="slider round"></span>
-            </label>
+            <input type="checkbox" id="CorSwitch">
+            <span class="slider round"></span>
+          </label>
             <!-- <p id="CorOFF">OFF</p><p id="CorON" style="display:none;">ON</p> -->
+            
           </div>
+
           <hr>
-          <div>격식체 전환
+          <div><span class="itemsName"> 격식체 전환 </span>
             <label class="switch">
               <input type="checkbox" id="formalSwitch">
               <span class="slider round"></span>
@@ -38,7 +42,7 @@
             <!-- <p id="formalOFF">OFF</p><p id="formalON" style="display:none;">ON</p> -->
 
           <hr>
-            <div>유/동의어 추천
+            <div><span class="itemsName"> 유의어/동의어 추천 </span>
               <label class="switch">
                 <input type="checkbox" id="wordrecSwitch">
                 <span class="slider round"></span>

@@ -6,21 +6,22 @@ const $onsite = document.querySelector('#onsite');
 //   $("#gdbOFF, #gdbON").toggle();
 // });
 
-// var switch2 = $("#CorSwitch");
-// switch2.click(function(){
-//   $("#CorOFF, #CorON").toggle();
-// });
+var switch2 = $("#CorSwitch");
+switch2.click(function(){
+  $("#CorOFF, #CorON").toggle();
+});
 
-// var switch3 = $("#formalSwitch");
-// switch3.click(function(){
-//   $("#formalOFF, #formalON").toggle();
-// });
+var switch3 = $("#formalSwitch");
+switch3.click(function(){
+  $("#formalOFF, #formalON").toggle();
+});
 
-// var switch4 = $("#wordrecSwitch");
-// switch4.click(function(){
-//   $("#wordrecOFF, #wordrecON").toggle();
-// });
-let gdbPower=false;
+var switch4 = $("#wordrecSwitch");
+switch4.click(function(){
+  $("#wordrecOFF, #wordrecON").toggle();
+});
+const gdbPower=true;
+var isChecked;
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -30,9 +31,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // checkbox의 상태를 저장합니다.
     chrome.storage.sync.set({ isChecked: gdbPowerSwitch.checked }, function() {
       console.log('gdbPowerSwitch state saved.');
+      if (isChecked){
+        gdbPower=false;
+      }
+      else{
+        gdbPower=true;
+      }
     });
-    chrome.runtime.sendMessage({ isChecked: gdbPowerSwitch.checked }, function(response) {
-      console.log('Message sent to background.js');
+    chrome.storage.sync.set({ gdbPower }, function() {
+      console.log('gdbPowerSwitch state saved.');
+    });
+
+    chrome.runtime.sendMessage({ isChecked: gdbPowerSwitch.checked, gdbPower }, function(response) {
+      console.log('Message sent to content.js');
     });
     // chrome.storage.sync.set({ gdbPower: true }, function() {
     //   console.log('gdbPower state saved.');

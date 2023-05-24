@@ -51,7 +51,7 @@ grammar.append($gr_title, $correct, $dismiss);//수정
 
 const domain= "https://geuldobi.kro.kr"
 
-let gdbPower = true;
+let gdbPower=true;
 
 chrome.storage.onChanged.addListener(function (changes, areaName) {
   if (areaName === 'sync' && changes.isChecked) {

@@ -5,6 +5,10 @@ h1, div, span {
   font-family: 'Nanum Gothic', sans-serif;
   font-weight: 800;
 }
+h1{
+  margin: 22px 10px;
+  font-size: 30px;
+}
 
 /*#logo {
   height: 60px;
@@ -23,12 +27,25 @@ hr {
 
 }
 
+.item{
+  float: left; 
+  font-size :15px;
+}
+
+.itemsName{
+  margin: 0px 0px 10px 10px;
+}
+
+
 .switch {
   position: relative;
-  display: inline-block;
+  display: block;
   width: 60px;
   height: 30px;
-  vertical-align:middle;
+  /* vertical-align:middle; */
+  float: right; /* 가로 - 왼쪽으로 */
+	justify-content: flex-end; 
+  bottom: 5px;
 }
 
 /* Hide default HTML checkbox */
