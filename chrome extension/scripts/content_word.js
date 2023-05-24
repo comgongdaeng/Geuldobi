@@ -6,7 +6,7 @@ let pg_num = 1; //단어 추천 인덱스 접근 위한 변수
     syn.style.height = "auto";
     pg_num = 1;
     //syn.style.height = "170px";
-  $more.style.display= "block";    $br.style.display = "block"; $dic_more.style.display = "block"; $meaningContainer.style.display = "block";
+  $rec_more.style.display= "block";    $br.style.display = "block"; $dic_more.style.display = "block"; $meaningContainer.style.display = "block";
     $rec_title.style.display="none"; $rec1.style.display="none"; $rec2.style.display="none"; $rec3.style.display="none"; $rec_another.style.display="none";
     $rec1.innerHTML = `<div style ="text-align:center";>
   <img src = "https://cc2022-2071024.s3.ap-northeast-1.amazonaws.com/ZKZg.gif" style = "width:16px; height:16px;">
@@ -155,11 +155,11 @@ function apply_w(suggestion) {
     event.stopImmediatePropagation();
   });
 
-  $more.addEventListener("mousedown", (event)=>{
+  $rec_more.addEventListener("mousedown", (event)=>{
     //ROBERTA URL
     
     syn.style.height = "auto";
-    $more.style.display= "none";
+    $rec_more.style.display= "none";
     $br.style.display = "none";
     //$rec1.innerHTML = `<img class=triangle style="width:16px; height:16px";>`;
     //$rec2.innerHTML = `<img class=triangle style="width:16px; height:16px";>`;

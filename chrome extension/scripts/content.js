@@ -21,7 +21,7 @@ const syn = document.createElement("span"); syn.id = "syn";// tooltip.className 
   $meaningContainer.style.maxHeight = "auto";  
   $meaningContainer.appendChild($meaning);
 
-  const $more = document.createElement("button"); $more.id = "more";
+  const $rec_more = document.createElement("button"); $rec_more.id = "rec_more";
   const $dic_more = document.createElement("p"); $dic_more.id = "dic_more";
 
   const $rec_title = document.createElement("p"); /*$rec_title.className = "title"; */$rec_title.id = "rec_title";
@@ -35,7 +35,7 @@ const syn = document.createElement("span"); syn.id = "syn";// tooltip.className 
   $meaning.innerHTML = `<div style ="text-align:center";>;
   <img src = "https://cc2022-2071024.s3.ap-northeast-1.amazonaws.com/ZKZg.gif" style = "width:16px; height:16px;">;
   </div>`;
-  $more.innerHTML = `<div id = "morebtn">  <span> 유의어/동의어 추천 </span>  <img class=morebtn style="width:16px; height:16px;">
+  $rec_more.innerHTML = `<div id = "morebtn">  <span> 유의어/동의어 추천 </span>  <img class=morebtn style="width:16px; height:16px;">
 </div>`;
   $rec_another.innerHTML = `<div><img class=again  style="width:16px; height:16px;"><span>다른 추천 단어 보기</span></div>`;
 $rec_another.style.cursor = "pointer";
@@ -264,7 +264,7 @@ document.addEventListener("mouseup", function (event) {
         getSyn(selection).then( data => {
           console.log(synonyms);
           if(synonyms["rec_result"] == "okt pos bad... error") {
-            $more.style.display = "none";
+            $rec_more.style.display = "none";
           } else {
             //let count = result["rec_result"].length;
             //let pg_num = count/3;

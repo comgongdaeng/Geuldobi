@@ -113,7 +113,7 @@ span.error {
 	margin: 3px 1px;
 }
 
-#another, #more, #rec_another {
+#another, #rec_more, #rec_another {
 	background-color: #62b124;
 	color: rgb(255, 255, 255);
 	height: 25px;
@@ -129,12 +129,12 @@ span.error {
 	margin: 5px 0px 13px 13px; /*13px;/*툴팁 테두리의 양옆 패딩 줄인 관계로 나머지에 추가..*/
 }
 
-#another:hover, #more:hover,#rec_another:hover {
+#another:hover, #rec_more:hover,#rec_another:hover {
 	background-color: #569f1e;
 	color: white;	
 }
 
-#another:active, #more:active, #rec_another:active{
+#another:active, #rec_more:active, #rec_another:active{
 	margin: 6px 0px 12px 14px;
 	background-color: #4d8f1a;
 	box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.35);
