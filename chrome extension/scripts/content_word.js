@@ -39,7 +39,7 @@ $dic_more.addEventListener('mousedown', (event)=>{
   event.stopImmediatePropagation();
   console.log("clicked!!!!!!")
   document.querySelector('body').style.paddingRight = "350px";
-  $sidebar.innerText = "결과 더 보기";
+  //$sidebar.innerText = "<결과 더 보기>";
   $sidebar.style.display = "block";
   document.querySelector('body').append($sidebar);
   
@@ -49,23 +49,39 @@ $dic_more.addEventListener('mousedown', (event)=>{
   $x_btn.style.float = "right";
   $x_btn.style.width = "16px"; $x_btn.style.height = "16px";
   $sidebar.append($x_btn);
-  for(let i = 0;i<cnt;i++) {
-    const $sup_no = document.createElement('div');
-    const $definition = document.createElement('div');
-    const $word = document.createElement('div');
-    const $pos = document.createElement('div');
-    $word.className = "dic_word";
-    $word.innerText = dic_result["items"][i]["word"]
-    $definition.innerText = dic_result["items"][i]["definition"];
-    $definition.className = "dic_meaning";
-    $sup_no.innerText = dic_result["items"][i]["sup_no"];
-    $sup_no.className = "sup_no";
-    $pos.innerText = dic_result["items"][i]["pos"];
-    $pos.className = "pos";
 
-    $sidebar.append($word, $sup_no, $pos);
-    $sidebar.append($definition);
-    $sidebar.append(document.createElement('hr'));
+  var $more_title = document.createElement('div');
+      $more_title.className = "more_title";
+      $more_title.innerText ="<단어 뜻 보기>";
+  $sidebar.append($more_title);
+  $sidebar.append(document.createElement('hr'));
+
+
+  for(let i = 0;i<cnt;i++) {
+
+      var sidebar = document.querySelector("#sidebar"); // sidebar 요소 선택
+      var $box = document.createElement('div'); // 박스 요소 생성
+      $box.className = "sidebar-box"; // 박스에 적용할 클래스
+    
+      var $word = document.createElement('div');
+      $word.className = "dic-word";
+      $word.innerText = dic_result["items"][i]["word"];
+    
+      var $sup_no = document.createElement('div');
+      $sup_no.className = "sup-no";
+      $sup_no.innerText = dic_result["items"][i]["sup_no"];
+    
+      var $pos = document.createElement('div');
+      $pos.className = "pos";
+      $pos.innerText = dic_result["items"][i]["pos"];
+    
+      var $definition = document.createElement('div');
+      $definition.className = "dic-meaning";
+      $definition.innerText = dic_result["items"][i]["definition"];
+    
+      $box.append($word, $sup_no, $pos, $definition); // 박스에 요소 추가
+      $sidebar.appendChild($box); // 사이드바에 박스 추가
+      //$sidebar.append(document.createElement('hr'));
   }
 });
 
