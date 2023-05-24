@@ -62,9 +62,40 @@ chrome.storage.onChanged.addListener(function (changes, areaName) {
     }
     else{
       gdbPower = false;
+      if (document.getElementById('syn') != null){
+        document.getElementById('syn').remove();
+      }
+      if (document.getElementById('formal') != null){
+        console.log(document.getElementById('formal'));
+        document.getElementById('formal').remove();
+      }
     }
   }
 });
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  if (request.action === 'beforeRefresh') {
+    if (document.getElementById('syn') != null){
+      document.getElementById('syn').remove();
+    }
+    if (document.getElementById('formal') != null){
+      console.log(document.getElementById('formal'));
+      document.getElementById('formal').remove();
+    }
+    console.log('새로고침 직전 동작');
+  } else if (request.action === 'beforeClose') {
+    if (document.getElementById('syn') != null){
+      document.getElementById('syn').remove();
+    }
+    if (document.getElementById('formal') != null){
+      console.log(document.getElementById('formal'));
+      document.getElementById('formal').remove();
+    }
+    console.log('탭이 닫히기 전 동작');
+
+  }
+});
+
 
 let dic_result;
 
@@ -291,6 +322,9 @@ document.addEventListener("mouseup", function (event) {
 });
 
   function show_results(synonyms, idx) {
+    if (!gdbPower) {
+      return;
+    }
     pg_num = idx;
     start_index = (pg_num - 1) *3;
     end_index = pg_num*3;
