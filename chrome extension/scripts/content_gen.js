@@ -69,6 +69,7 @@ $apply.addEventListener("mousedown", (event) => {
     //     break;
     //   }
     // }
+
     //$textbox_mail.innerText.replace(selec_text, machine);
 
 
@@ -82,7 +83,7 @@ $apply.addEventListener("mousedown", (event) => {
       console.log(document.getElementById('formal'));
       document.getElementById('formal').remove();
     }
-  
+
     /*
     const $tooltips = document.getElementsByName("#tooltip");
   while ($tooltips.length > 0) {
