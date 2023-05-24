@@ -64,7 +64,6 @@ $apply.addEventListener("mousedown", (event) => {
     //     break;
     //   }
     // }
-
     /*
     const $tooltips = document.getElementsByName("#tooltip");
   while ($tooltips.length > 0) {
