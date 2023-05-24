@@ -53,9 +53,9 @@ $apply.addEventListener("mousedown", (event) => {
     console.log("applied==false")
     applied = true;
     const $text = document.getElementsByTagName('div');
-    const $element = document.querySelector('[role="textbox"]');
+    const $element = document.querySelector('[role="textbox"]'); //테스트용
     console.log($text.in);
-    console.log($element);
+    console.log($element);//테스트용
     formal.style.display = "none";
     console.log("applid 내에서")
     // for (let i = 0; i < $text.length; i++) {
@@ -64,12 +64,7 @@ $apply.addEventListener("mousedown", (event) => {
     //     break;
     //   }
     // }
-    for (let i = 0; i < $element.length; i++) {
-      if ($element[i].innerHTML.includes(selec_text)) {
-        $element[i].innerHTML = $element[i].innerHTML.replace(selec_text, machine);
-        break;
-      }
-    }
+
     /*
     const $tooltips = document.getElementsByName("#tooltip");
   while ($tooltips.length > 0) {
