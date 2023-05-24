@@ -223,6 +223,7 @@ document.addEventListener("mouseup", function (event) {
     clickedElement = clickedElement.parentElement;
   }
 
+
   const selection = window.getSelection()
   if (selection) {
     const first = selection.getRangeAt(0);
@@ -288,6 +289,46 @@ document.addEventListener("mouseup", function (event) {
     isDragging = false;
   }        
 });
+
+  function show_results(synonyms, idx) {
+    pg_num = idx;
+    start_index = (pg_num - 1) *3;
+    end_index = pg_num*3;
+    console.log("st idx, end idx, length", start_index, end_index,synonyms["rec_result"].length )
+    if(end_index==synonyms["rec_result"].length) {
+      console.log("바뀌기전 pgnum", pg_num)
+      pg_num = 1;
+      $rec1.innerHTML = `<img class=triangle style="width:16px; height:15px";> ` + synonyms["rec_result"][start_index];
+      $rec2.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][start_index+1];
+      $rec3.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][start_index+2];
+      console.log("바뀐 pgnum", pg_num)
+    }
+    else if(end_index>synonyms["rec_result"].length) {
+      console.log("바뀌기전 pgnum", pg_num)
+      pg_num = 1;
+      if(end_index-synonyms["rec_result"].length==1) {
+        $rec1.innerHTML = `<img class=triangle style="width:16px; height:15px";> ` + synonyms["rec_result"][start_index];
+      $rec2.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][start_index+1];
+      $rec3.style.display = 'none';
+      console.log("바뀐 pgnum", pg_num)
+      }
+      else if(end_index-synonyms["rec_result"].length==2) {
+        $rec1.innerHTML = `<img class=triangle style="width:16px; height:15px";> ` + synonyms["rec_result"][start_index];
+      $rec2.style.display = "none";
+      $rec3.style.display = 'none';
+      console.log("바뀐 pgnum", pg_num)
+      }
+    } else {
+      console.log("바뀌기전 pgnum", pg_num)
+      pg_num++;
+      $rec1.innerHTML = `<img class=triangle style="width:16px; height:15px";> ` + synonyms["rec_result"][start_index];
+      $rec2.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][start_index+1];
+      $rec3.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][start_index+2];
+      console.log("바뀐 pgnum", pg_num)
+    }
+
+  }
+
 
   function show_results(synonyms, idx) {
     pg_num = idx;
