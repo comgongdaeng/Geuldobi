@@ -51,9 +51,49 @@ grammar.append($gr_title, $correct, $dismiss);//수정
 
 const domain= "https://geuldobi.kro.kr"
 
+let gdbPower = true;
+
+chrome.storage.onChanged.addListener(function (changes, areaName) {
+  if (areaName === 'sync' && changes.isChecked) {
+    var newIsChecked = changes.isChecked.newValue;
+    console.log('isChecked 값 변경됨:', newIsChecked);
+    if (newIsChecked){
+      gdbPower = true;
+    }
+    else{
+      gdbPower = false;
+    }
+  }
+});
+
 let dic_result;
 
+//글도비 ON-OFF 동작 popup.js로 부터 메세지 받음
+// chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+//   if (request.action === "enableFunction") {
+//     OnOFF();
+//   } else if (request.action === "disableFunction") {
+//     OnOFF();
+//   }
+// });
+
+// function OnOFF() {
+//   if (gdbPower){
+//     gdbON = false;
+//     console.log(gdbON);
+//   }
+//   else{
+//     gdbPower = true;
+//     console.log(gdbON);
+//   }
+// }
+
+
 async function isSentence(selec_text){
+  if (!gdbPower) {
+    return;
+  }
+
     let res;
     let url = domain+"/isSentence?user_input=" + selec_text;
         console.log(url)
@@ -62,10 +102,15 @@ async function isSentence(selec_text){
         if (res =="no data") {res = res.toString(); }
         console.log("this is res:", res)
     return res;
+
 }
 
 //드래그->문장일 경우
 async function KoSST(selec_text){
+  if (!gdbPower) {
+    return;
+  }
+
     init_formal();
     let res;
     let url = domain +"/model/KoSST?user_sentence=" + selec_text
@@ -99,6 +144,10 @@ $dismiss.addEventListener("mouseleave", ()=>{
 })
 
 function addUnderline() {
+  if (!gdbPower) {
+    return;
+  }
+
   const divs = document.body.getElementsByTagName("div");
   for (let i = 0; i < divs.length; i++) {
     const div = divs[i];
@@ -120,6 +169,9 @@ document.addEventListener("input", ()=>{addUnderline()})
 
 
 $correct.addEventListener("mousedown", (event) => {
+  if (!gdbPower) {
+    return;
+  }
     event.stopImmediatePropagation();
     grammar.style.display = "none";
     const $gamsa = document.getElementsByTagName('div');
@@ -136,7 +188,11 @@ $correct.addEventListener("mousedown", (event) => {
 });
 
 //드래그-> 단어일 경우
-function getMeaning(res) {    
+function getMeaning(res) {   
+  if (!gdbPower) {
+    return;
+  }
+ 
   word_init()
     $target.innerText = selec_text;
     console.log("getMeaning selec",selec_text)
@@ -152,94 +208,127 @@ function getMeaning(res) {
     
 }
 
-
-
   //마우스다운 이벤트-> 드래그되었는지 아닌지 확인
 document.addEventListener("mouseup", function (event) {
-    let clickedElement = event.target;
-    while (clickedElement) {
-      if (clickedElement.id === 'syn'||clickedElement.id === 'formal'||clickedElement.id === 'grammar') {
-        event.stopImmediatePropagation();
-        return;
-      }
-      clickedElement = clickedElement.parentElement;
+  if (!gdbPower) {
+    return;
+  }
+
+  let clickedElement = event.target;
+  while (clickedElement) {
+    if (clickedElement.id === 'syn'||clickedElement.id === 'formal'||clickedElement.id === 'grammar') {
+      event.stopImmediatePropagation();
+      return;
     }
-
-      const selection = window.getSelection()
-      if (selection) {
-        const first = selection.getRangeAt(0);
-        parentElement = first.commonAncestorContainer.parentElement;
-        /*console.log(parentElement.tagName);*/
-        selec_text = selection.toString();
-      }
-      
-      if (selec_text) {
-        //isSentence
-
-        isSentence(selec_text).then(result => {
-            console.log("under res:", result);
-            if (result == "no data") {
-              KoSST(selec_text);
-              console.log("됐당");
-              if (selec_text.trim().length !== 0) {
-                isDragging = true;
-                formal.style.display = 'block';
-                formal.style.visibility="visible";
-                syn.style.visibility ="hidden";
-                syn.style.display="none";
-                parentElement.append(formal);
-                if (document.getElementById('syn') != null){
-                  document.getElementById('syn').remove();
-                  //this.removeChild
-                } 
-                
-                
-              }
-            } else {
-              getMeaning(result);
-              syn.style.display = "block";
-              syn.style.visibility = "visible";
-              formal.style.visibility="hidden";
-              formal.style.display = 'none';
-              parentElement.append(syn);
-              if (document.getElementById('formal') != null){
-                console.log(document.getElementById('formal'));
-                document.getElementById('formal').remove();
-              }
-              
-              getSyn(selection).then( data => {
-                console.log(synonyms);
-                if(synonyms["rec_result"] == "okt pos bad... error") {
-                  $more.style.display = "none";
-                } else {
-                  //let count = result["rec_result"].length;
-                  //let pg_num = count/3;
-                  show_results(synonyms, pg_num);
-                  console.log(synonyms);
-                }
-              });
+    clickedElement = clickedElement.parentElement;
+  }
 
 
-            }
-          });
+  const selection = window.getSelection()
+  if (selection) {
+    const first = selection.getRangeAt(0);
+    parentElement = first.commonAncestorContainer.parentElement;
+    /*console.log(parentElement.tagName);*/
+    selec_text = selection.toString();
+  }
 
-    } else {
-        // syn.style.display = 'none';
-        // formal.style.display = "none";//드래그된 내용이 없으면 툴팁 안 보이게
-        // formal.style.visibility = "hidden";
-        // syn.style.visibility = "hidden";
-        if (document.getElementById('syn') != null){
-          document.getElementById('syn').remove();
-          //this.removeChild
-        } 
+  if (selec_text) {
+   //isSentence
+    isSentence(selec_text).then(result => {
+      console.log("under res:", result);
+      if (result == "no data") {
+        KoSST(selec_text);
+        console.log("됐당");
+        if (selec_text.trim().length !== 0) {
+          isDragging = true;
+          formal.style.display = 'block';
+          formal.style.visibility="visible";
+          syn.style.visibility ="hidden";
+          syn.style.display="none";
+          parentElement.append(formal);
+          if (document.getElementById('syn') != null){
+            document.getElementById('syn').remove();
+          }    
+        }
+      } else {
+        getMeaning(result);
+        syn.style.display = "block";
+        syn.style.visibility = "visible";
+        formal.style.visibility="hidden";
+        formal.style.display = 'none';
+        parentElement.append(syn);
         if (document.getElementById('formal') != null){
           console.log(document.getElementById('formal'));
           document.getElementById('formal').remove();
-        }
-        
-        
-        isDragging = false;}
-  });
+          }
+        getSyn(selection).then( data => {
+          console.log(synonyms);
+          if(synonyms["rec_result"] == "okt pos bad... error") {
+            $more.style.display = "none";
+          } else {
+            //let count = result["rec_result"].length;
+            //let pg_num = count/3;
+            show_results(synonyms, pg_num);
+            console.log(synonyms);
+          }
+        });
+
+
+      }
+    });
+  }
+  else {
+    if (document.getElementById('syn') != null){
+      document.getElementById('syn').remove();
+      //this.removeChild
+    } 
+    if (document.getElementById('formal') != null){
+      console.log(document.getElementById('formal'));
+      document.getElementById('formal').remove();
+    }
+    isDragging = false;
+  }        
+});
+
+  function show_results(synonyms, idx) {
+    pg_num = idx;
+    start_index = (pg_num - 1) *3;
+    end_index = pg_num*3;
+    console.log("st idx, end idx, length", start_index, end_index,synonyms["rec_result"].length )
+    if(end_index==synonyms["rec_result"].length) {
+      console.log("바뀌기전 pgnum", pg_num)
+      pg_num = 1;
+      $rec1.innerHTML = `<img class=triangle style="width:16px; height:15px";> ` + synonyms["rec_result"][start_index];
+      $rec2.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][start_index+1];
+      $rec3.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][start_index+2];
+      console.log("바뀐 pgnum", pg_num)
+    }
+    else if(end_index>synonyms["rec_result"].length) {
+      console.log("바뀌기전 pgnum", pg_num)
+      pg_num = 1;
+      if(end_index-synonyms["rec_result"].length==1) {
+        $rec1.innerHTML = `<img class=triangle style="width:16px; height:15px";> ` + synonyms["rec_result"][start_index];
+      $rec2.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][start_index+1];
+      $rec3.style.display = 'none';
+      console.log("바뀐 pgnum", pg_num)
+      }
+      else if(end_index-synonyms["rec_result"].length==2) {
+        $rec1.innerHTML = `<img class=triangle style="width:16px; height:15px";> ` + synonyms["rec_result"][start_index];
+      $rec2.style.display = "none";
+      $rec3.style.display = 'none';
+      console.log("바뀐 pgnum", pg_num)
+      }
+    } else {
+      console.log("바뀌기전 pgnum", pg_num)
+      pg_num++;
+      $rec1.innerHTML = `<img class=triangle style="width:16px; height:15px";> ` + synonyms["rec_result"][start_index];
+      $rec2.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][start_index+1];
+      $rec3.innerHTML = `<img class=triangle style="width:16px; height:15px";> `+ synonyms["rec_result"][start_index+2];
+      console.log("바뀐 pgnum", pg_num)
+    }
+
+  }
+
 
   function show_results(synonyms, idx) {
     pg_num = idx;
@@ -284,7 +373,9 @@ document.addEventListener("mouseup", function (event) {
 
   // 드래그 시작 위치로 툴팁 위치 지정
 document.addEventListener('mousedown', (event) => {
-
+  if (!gdbPower) {
+    return;
+  }
   formal.style.left = event.pageX -150 + 'px';
   formal.style.top = event.pageY -150 + 'px';
   syn.style.left = event.pageX -150+ 'px';

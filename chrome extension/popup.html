@@ -4,11 +4,11 @@
 <head>
   <meta http-equiv="Content-type" content="text/html"; charset="UTF-8">
   <link rel="stylesheet" href="popup.css">
-  
+  <script src="scripts/jquery.min.js"></script>
+  <script src="popup.js"></script>
 </head>
 
 <body>
-    
   <div class="container" style="justify-content: space-between;"><!-- width: 1000px;-->
     <div style="border: 1px dashed #11714d; padding: 10px; "> <!-- #bcc924;-->
       <h1><img src="images/geuldobi.png" alt="" id = "logo" style="height: 32px; width: 32px;"> 글도비</h1>
@@ -20,14 +20,14 @@
             <input type="checkbox" id="gdbSwitch">
             <span class="slider round"></span>
           </label>
-          <p id="gdbOFF">OFF</p><p id="gdbON" style="display:none;">ON</p>
+          <!-- <p id="gdbOFF">OFF</p><p id="gdbON" style="display:none;">ON</p> -->
           <hr>
           <div>맞춤법 검사
             <label class="switch">
               <input type="checkbox" id="CorSwitch">
               <span class="slider round"></span>
             </label>
-            <p id="CorOFF">OFF</p><p id="CorON" style="display:none;">ON</p>
+            <!-- <p id="CorOFF">OFF</p><p id="CorON" style="display:none;">ON</p> -->
           </div>
           <hr>
           <div>격식체 전환
@@ -35,7 +35,7 @@
               <input type="checkbox" id="formalSwitch">
               <span class="slider round"></span>
             </label>
-            <p id="formalOFF">OFF</p><p id="formalON" style="display:none;">ON</p>
+            <!-- <p id="formalOFF">OFF</p><p id="formalON" style="display:none;">ON</p> -->
 
           <hr>
             <div>유/동의어 추천
@@ -43,7 +43,7 @@
                 <input type="checkbox" id="wordrecSwitch">
                 <span class="slider round"></span>
               </label>
-              <p id="wordrecOFF">OFF</p><p id="wordrecON" style="display:none;">ON</p>
+              <!-- <p id="wordrecOFF">OFF</p><p id="wordrecON" style="display:none;">ON</p> -->
             </div>
           </div>
         </div>
@@ -51,7 +51,8 @@
       </div>
 
     </div>
-    <script src="popup.js"></script>
+
+   
 </body>
 
 </html>

@@ -17,11 +17,11 @@
         "128": "images/geuldobi.png"
     },
     "permissions": ["cookies", "storage", "activeTab", "scripting", "tabs", "<all_urls>", "proxy"], 
-    "host_permissions" : ["https://*/"],
+    "host_permissions" : ["https://*/", "https://geuldobi.kro.kr/*"],
     "content_scripts": [
         {
             "js": [
-                "scripts/content.js", "scripts/content_gen.js", "scripts/content_word.js"
+                 "scripts/content.js", "scripts/content_gen.js", "scripts/content_word.js"
             ],
             "matches": [
                 "<all_urls>"
@@ -42,5 +42,8 @@
             ],
             "css": ["styles/content.css"]
         }
-    ]
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://music.yandex.ru/;"
+    }
 }

@@ -1,13 +1,25 @@
 // background script에서
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.type === "change_input_value") {
-    chrome.tabs.query({url: "*://mail.google.com/*"}, (tabs) => {
-      tabs.forEach((tab) => {
-        chrome.tabs.executeScript(tab.id, {code: `document.querySelector('[aria-label="To"]').value = "${message.value}";`});
-      });
-    });
-  }
-});
+// chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+//   if (message.type === "change_input_value") {
+//     chrome.tabs.query({url: "*://mail.google.com/*"}, (tabs) => {
+//       tabs.forEach((tab) => {
+//         chrome.tabs.executeScript(tab.id, {code: `document.querySelector('[aria-label="To"]').value = "${message.value}";`});
+//       });
+//     });
+//   }
+// });
+
+
+// chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+//   if (request.isChecked === false) {
+//     // isChecked이 false일 경우 익스텐션을 비활성화합니다.
+//     chrome.runtime.sendMessage({ action: 'disableExtension' });
+//   } else if (request.isChecked === true) {
+//     // isChecked이 true일 경우 익스텐션을 활성화합니다.
+//     chrome.runtime.sendMessage({ action: 'enableExtension' });
+//   }
+// });
+
 
 /*
 chrome.action.onClicked.addListener(async (tab) => {
