@@ -22,7 +22,7 @@ let pg_num = 1; //단어 추천 인덱스 접근 위한 변수
   word_init()
 
   
-  syn.append($title_w, $target, $meaningContainer, $dic_more, $more, $br, $rec_title, $rec1, $rec2, $rec3, $rec_another);//, $another, $apply
+  syn.append($title_w, $target, $meaningContainer, $dic_more, $rec_more, $br, $rec_title, $rec1, $rec2, $rec3, $rec_another);//, $another, $apply
 
 
   $title_w.className += " non-draggable"; //클래스 이름이 붙는 에러 발생하여 공백 추가하였음
@@ -48,11 +48,12 @@ $dic_more.addEventListener('mousedown', (event)=>{
   $x_btn.src = "https://cc2022-2071024.s3.ap-northeast-1.amazonaws.com/x-button.png";
   $x_btn.style.float = "right";
   $x_btn.style.width = "16px"; $x_btn.style.height = "16px";
+  $x_btn.style.marginTop="16px";
   $sidebar.append($x_btn);
 
   var $more_title = document.createElement('div');
       $more_title.className = "more_title";
-      $more_title.innerText ="<단어 뜻 보기>";
+      $more_title.innerText ="단어 뜻 전체 보기";
   $sidebar.append($more_title);
   $sidebar.append(document.createElement('hr'));
 
