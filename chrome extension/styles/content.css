@@ -9,7 +9,7 @@ span.error {
 	display: none;
 	position: absolute;
 	height: auto;
-	width: calc(35%);
+	width: calc(30%);
 	background-color: white;
 	border: solid 1px #a6b9b2;
 	border-radius: 15px;
@@ -195,11 +195,17 @@ span.error {
   content: url(https://cc2022-2071024.s3.ap-northeast-1.amazonaws.com/triangle.png
 );
 }
+
+.tri_under {
+	content: url(https://cc2022-2071024.s3.ap-northeast-1.amazonaws.com/tri_under.png
+  );
+}
+
 .again {
   content: url(https://cc2022-2071024.s3.ap-northeast-1.amazonaws.com/loading_32.png);
 }
 
-#sidebar {
+.sidebar {
 	position: fixed;
 	right: 0px;
 	top: 0px;
@@ -242,6 +248,13 @@ span.error {
 	font-size: smaller;
 	color: #697162;
   }
+
+  .wrong {
+	font-style: italic;
+	font-size: smaller;
+	color: #697162;
+	text-decoration: line-through #697162;
+  }
   
   .pos {
 	margin-top: 5px;
@@ -283,17 +296,17 @@ hr {
 }
 
 
-#sidebar::-webkit-scrollbar{
+.sidebar::-webkit-scrollbar{
 	width: 20px;
 	}
 
-#sidebar::-webkit-scrollbar-thumb{
+.sidebar::-webkit-scrollbar-thumb{
 	background-color:#bbcbc5;
 	/* 스크롤바 둥글게 설정    */
 	border-radius: 10px; 
 	border: 7px solid rgb(250, 250, 248);
   }
-#sidebar::-webkit-scrollbar-track{
+.sidebar::-webkit-scrollbar-track{
 	background-color: rgba(0,0,0,0);
   }
 
