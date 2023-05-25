@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "글도비",
-    "version": "1.0",
+    "version": "0.2.0",
     "description": "글을 돕다.",
     "background": {
         "service_worker": "scripts/background.js"
@@ -16,12 +16,12 @@
         "48": "images/geuldobi.png",
         "128": "images/geuldobi.png"
     },
-    "permissions": ["cookies", "storage", "activeTab", "scripting", "tabs", "<all_urls>", "proxy"], 
+    "permissions": ["cookies", "storage", "activeTab", "scripting", "tabs", "proxy", "webNavigation"], 
     "host_permissions" : ["https://*/", "https://geuldobi.kro.kr/*"],
     "content_scripts": [
         {
             "js": [
-                 "scripts/content.js", "scripts/content_gen.js", "scripts/content_word.js"
+                 "scripts/content.js", "scripts/content_gen.js", "scripts/content_word.js", "scripts/grammar.js"
             ],
             "matches": [
                 "<all_urls>"
@@ -45,5 +45,14 @@
     ],
     "content_security_policy": {
         "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://music.yandex.ru/;"
-    }
+    },
+    "commands": {
+        "execute-grammar": {
+          "suggested_key": {
+            "default": "Ctrl+Shift+X"
+          },
+          "description": "Grammar 결과"
+        }
+      }
+    
 }
