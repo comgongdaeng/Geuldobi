@@ -32,7 +32,7 @@ let pg_num = 1; //단어 추천 인덱스 접근 위한 변수
 
 
 const $x_btn = document.createElement('img');
-const $sidebar = document.createElement('div'); $sidebar.id = "sidebar"; 
+const $sidebar = document.createElement('div'); $sidebar.className = "sidebar"; 
 
 //sidebar
 $dic_more.addEventListener('mousedown', (event)=>{
@@ -183,8 +183,6 @@ function apply_w(suggestion) {
     //$rec3.innerHTML = `<img class=triangle style="width:16px; height:16px";>`;
     $rec_title.style.display="block"; $rec1.style.display="block"; $rec2.style.display="block"; $rec3.style.display="block"; $rec_another.style.display="block";
     //syn.append();
-    
-    
 
     //event.stopImmediatePropagation();
     event.stopPropagation();
