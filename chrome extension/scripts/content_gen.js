@@ -55,12 +55,22 @@ $apply.addEventListener("mousedown", (event) => {
     formal.style.display = "none";
     //const $text = document.getElementsByTagName('div');
     //const $text_mail = document.querySelector('[role="textbox"]').getElementsByTagName('div');
-    const $test_mail = document.getElementById(':68').getElementsByTagName('div');
+    //const $test_mail = document.getElementById(':68').getElementsByTagName('div');
 
-    console.log($test_mail);
-    console.log($test_mail[0].innerHTML);
-    
-    console.log("applid 내에서")
+    //console.log($test_mail);
+    //console.log($test_mail[0].innerHTML);
+
+    const $mail_text_con1 = document.querySelector('.Am.Al').getElementsByTagName("text")
+
+    const $mail_text_con = document.querySelector('.Am.Al')
+
+
+    //console.log(element1);
+    //console.log(element2);
+    //console.log($mail_text_con.innerHTML)
+    console.log($mail_text_con.innerText);
+    console.log("applid 내에서");
+    console.log(selec_text);
 
     //아마도 기존 코드
     // for (let i = 0; i < $text.length; i++) {
@@ -70,15 +80,15 @@ $apply.addEventListener("mousedown", (event) => {
     //   }
     // }
 
-    //$textbox_mail.innerText.replace(selec_text, machine);
+    $mail_text_con.innerText= $mail_text_con.innerText.replace(selec_text, machine);
 
-
-    for (let i = 0; i < $test_mail.length; i++) {
-      if ($test_mail[i].innerHTML.includes(selec_text)) {
-        $test_mail[i].innerHTML = $test_mail[i].innerHTML.replace(selec_text, machine);
-        break;
-      }
-    }
+    // for (let i = 0; i < $mail_text_con.length; i++) {
+    //   $mail_text_con.innerText = mail_text_con.replace(selec_text,machine);
+    //   if ($mail_text_con[i].innerHTML.includes(selec_text)) {
+    //     $mail_text_con[i].innerHTML = $mail_text_con[i].innerHTML.replace(selec_text, machine);
+    //     break;
+    //   }
+    // }
     if (document.getElementById('formal') != null){
       console.log(document.getElementById('formal'));
       document.getElementById('formal').remove();
