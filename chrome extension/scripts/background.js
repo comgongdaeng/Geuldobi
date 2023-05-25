@@ -9,6 +9,9 @@
 //   }
 // });
 
+
+
+
 chrome.webNavigation.onBeforeNavigate.addListener(function(details) {
   chrome.tabs.sendMessage(details.tabId, { action: 'beforeRefresh' });
 });
@@ -16,6 +19,28 @@ chrome.webNavigation.onBeforeNavigate.addListener(function(details) {
 chrome.tabs.onRemoved.addListener(function(tabId, removeInfo) {
   chrome.tabs.sendMessage(tabId, { action: 'beforeClose' });
 });
+
+// 백그라운드 스크립트로부터 메시지를 받는 리스너
+chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+  if (message.action === 'executeFunction') {
+    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, { action: 'executeFunction' });
+    });
+  }
+});
+
+// 단축키 이벤트 리스너
+chrome.commands.onCommand.addListener(function(command) {
+  if (command === 'execute-grammar') {
+    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, { action: 'executeFunction' });
+    });
+  }
+});
+
+
+
+
 
 
 /*

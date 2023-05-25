@@ -51,6 +51,21 @@ grammar.append($gr_title, $correct, $dismiss);//수정
 
 const domain= "https://geuldobi.kro.kr"
 
+//////////////////////////////////////////////
+/*
+const $shadow = document.body.attachShadow({mode: 'open'});
+document.body.shadowRoot.innerHTML = `<img src = "https://cc2022-2071024.s3.ap-northeast-1.amazonaws.com/loading_32.png">`
+//const $icon = document.createElement('img'); $icon.id = "icon";
+
+$shadow.style.left = 1600+'px'
+$shadow.style.top = 850+'px'
+$shadow.style.content = `url(https://cc2022-2071024.s3.ap-northeast-1.amazonaws.com/loading_32.png)`
+//document.body.append($icon); 
+*/
+////////////////////////////////////////////
+
+
+
 let gdbPower=true;
 
 chrome.storage.onChanged.addListener(function (changes, areaName) {
@@ -173,8 +188,8 @@ $dismiss.addEventListener("mouseleave", ()=>{
     $dismiss.style.backgroundColor = "white";
     $dismiss.style.color = "black";
 })
-
-function addUnderline() {
+/*
+function GrammarCheck() {
   if (!gdbPower) {
     return;
   }
@@ -194,9 +209,9 @@ function addUnderline() {
       });
     }
   }
-}
+}*/
+///////////////////////////////////////////////////////////
 
-document.addEventListener("input", ()=>{addUnderline()})
 
 
 $correct.addEventListener("mousedown", (event) => {
@@ -261,6 +276,7 @@ document.addEventListener("mouseup", function (event) {
     parentElement = first.commonAncestorContainer.parentElement;
     /*console.log(parentElement.tagName);*/
     selec_text = selection.toString();
+    
   }
 
   if (selec_text) {
@@ -295,7 +311,9 @@ document.addEventListener("mouseup", function (event) {
         getSyn(selection).then( data => {
           console.log(synonyms);
           if(synonyms["rec_result"] == "okt pos bad... error") {
-            $rec_more.style.display = "none";
+            show_no_results();
+            //$rec_more.style.display = "none";
+
           } else {
             //let count = result["rec_result"].length;
             //let pg_num = count/3;
@@ -321,6 +339,15 @@ document.addEventListener("mouseup", function (event) {
   }        
 });
 
+function show_no_results() {
+  if (!gdbPower) {
+    return;
+  }
+  $rec1.innerHTML = "추천 결과가 없습니다";
+  $rec2.style.display = "none";
+  $rec3.style.display = 'none';
+  $rec_another.style.display = "none";
+}
   function show_results(synonyms, idx) {
     if (!gdbPower) {
       return;
