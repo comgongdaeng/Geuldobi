@@ -1,6 +1,8 @@
 # 글도비 - Geuldobi ✏ 
-쉽고 편한 글쓰기 도우미 - 크롬 익스텐션
-
+당신만의 효율적이고 똑똑한 글요정! - 크롬 익스텐션
+- 하나의 창 안에서 즉각적인 맞춤법 피드백과 빠른 단어 검색
+- 자연어처리 기술을 이용하여 문맥에 맞는 단어 추천 및 격식 문장 추천 (RoBERTa, KoBART)
+ 
 
  ## 🎬 시연 영상
   사용 방법은 [유튜브 링크](https://youtu.be/pbjdSkSW3zQ) 및 .gif를 참고해주세요. 
@@ -59,14 +61,14 @@ uvicorn main:app --host=0.0.0.0 port=8000
 
 ## Made By
 
-👤 **	 comgongdaeng (comgongdaeng)**
-* Github: [@comgongdaeng](https://github.com/comgongdaeng)
+👤 comgongdaeng (comgongdaeng) 
+- Github: [@comgongdaeng](https://github.com/comgongdaeng)
 
-👤 **	Yujin (Yudility)**
-* Github: [@Yudility](https://github.com/Yudility)
+👤 Yujin (Yudility)
+- Github: [@Yudility](https://github.com/Yudility)
 
-👤 **	youngnfresh (GaYoung0601)**
-* Github: [@GaYoung0601](https://github.com/GaYoung0601)
+👤 youngnfresh (GaYoung0601) 
+-  Github: [@GaYoung0601](https://github.com/GaYoung0601)
 
 
 <br/>
