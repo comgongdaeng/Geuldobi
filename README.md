@@ -54,9 +54,10 @@ cd ..\Geulnobi\BackEnd\fastapi
 ```
 uvicorn main:app --host=0.0.0.0 port=8000
 ```  
-###### 만약 localhost로 구동시, CORS error가 발생한다면 [기술블로그](http://yuniv0.tistory.com/3) 를 참고해주세요!  
+###### 만약 localhost로 구동시, CORS error가 발생한다면 [기술블로그](http://yuniv0.tistory.com/3) 를 참고해주세요!
 
-### Made By
+
+## Made By
 
 👤 **	 comgongdaeng (comgongdaeng)**
 * Github: [@comgongdaeng](https://github.com/comgongdaeng)
@@ -68,9 +69,10 @@ uvicorn main:app --host=0.0.0.0 port=8000
 * Github: [@GaYoung0601](https://github.com/GaYoung0601)
 
 
-
 <br/>
 <br/>
 
 # 📌 포스터 📌
 ![편하게](https://github.com/comgongdaeng/geuldobi/assets/109388787/7ace29ef-97db-446d-9b3f-93d9086e2191)
+
+
