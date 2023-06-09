@@ -55,7 +55,16 @@ uvicorn main:app --host=0.0.0.0 port=8000
 
 <br/>
 
+# 시연 영상
+사용 방법은 영상 및 .gif를 참고해주세요. 
+###### _맞춤법 검사 내용은 Ctrl + Shift + X 를 눌러서 확인할 수 있습니다.
 
+![졸업발표용 시연영상2](https://github.com/comgongdaeng/Geuldobi/assets/78692557/311fdb92-4e67-48a3-b4f5-1224508f3a1e)
+
+[유튜브 링크](https://youtu.be/wQbbR4PUSso)
+
+
+<br/>
 <br/>
 
 # 📌 포스터 📌
