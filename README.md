@@ -13,8 +13,8 @@ pip install uvicorn
 <br/>
 
 ### 1. 다운로드
-   1) .zip download 
-   2) git clone 이용하기
+   - .zip download 
+   - git clone 이용하기
 ```
 git clone https://github.com/comgongdaeng/Geuldobi.git
 ```  
