@@ -1,10 +1,12 @@
 # 글도비 - Geuldobi ✏ 
+쉽고 편한 글쓰기 도우미 - 크롬 익스텐션
+
 
  ## 🎬 시연 영상
   사용 방법은 [유튜브 링크](https://youtu.be/pbjdSkSW3zQ) 및 .gif를 참고해주세요. 
  ######  맞춤법 검사 내용은 Ctrl + Shift + X 를 눌러서 확인할 수 있습니다.
+<img src="https://github.com/comgongdaeng/Geuldobi/assets/109388787/06d7c05a-8f85-45d8-bcd0-0436bf034f86" width="80%" height="80%" ></img>
 
-![졸업발표용](https://github.com/comgongdaeng/Geuldobi/assets/109388787/06d7c05a-8f85-45d8-bcd0-0436bf034f86)
 
 <br/>
 
@@ -24,7 +26,7 @@ pip install uvicorn
 git clone https://github.com/comgongdaeng/Geuldobi.git
 ```  
 
-### 2. [chrome://extensions/](chrome://extensions) 접속
+### 2. <chrome://extensions> 접속
 ```
 chrome://extensions/
 ```  
@@ -36,7 +38,9 @@ chrome://extensions/
 ![image](https://github.com/comgongdaeng/Geuldobi/assets/78692557/022037f9-39cf-41b0-967b-7310975a3ef9)  
 
 
-### 4. '압축해제된 확장 프로그램을 로드합니다.' 클릭 후 chrome extension 파일 업로드
+### 4. 글도비 업로드하기
+'압축해제된 확장 프로그램을 로드합니다.' 클릭 후 chrome extension 폴더 선택하기
+
 ![image](https://github.com/comgongdaeng/Geuldobi/assets/78692557/d6999b6b-d4b4-4284-aa4f-256f67641d84)  
 
 
@@ -52,6 +56,16 @@ uvicorn main:app --host=0.0.0.0 port=8000
 ```  
 ###### 만약 localhost로 구동시, CORS error가 발생한다면 [기술블로그](http://yuniv0.tistory.com/3) 를 참고해주세요!  
 
+### Made By
+
+👤 **	 comgongdaeng (comgongdaeng)**
+* Github: [@comgongdaeng](https://github.com/comgongdaeng)
+
+👤 **	Yujin (Yudility)**
+* Github: [@Yudility](https://github.com/Yudility)
+
+👤 **	youngnfresh (GaYoung0601)**
+* Github: [@GaYoung0601](https://github.com/GaYoung0601)
 
 
 
