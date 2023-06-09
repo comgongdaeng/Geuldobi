@@ -5,7 +5,7 @@
 사용 방법은 [유튜브 링크](https://youtu.be/pbjdSkSW3zQ) 및 .gif를 참고해주세요. 
 ###### 맞춤법 검사 내용은 Ctrl + Shift + X 를 눌러서 확인할 수 있습니다.
 
-![졸업발표용 시연영상2](h)
+![졸업발표용](https://github.com/comgongdaeng/Geuldobi/assets/109388787/06d7c05a-8f85-45d8-bcd0-0436bf034f86)
 
 <br/>
 
@@ -16,7 +16,7 @@
 pip install fastapi
 pip install uvicorn
 ```
-![졸업발표용](https://github.com/comgongdaeng/Geuldobi/assets/109388787/06d7c05a-8f85-45d8-bcd0-0436bf034f86)
+
 
 ### 1. 다운로드
    - .zip download 
