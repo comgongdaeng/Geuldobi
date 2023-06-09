@@ -1,6 +1,7 @@
 # 글도비 - Geuldobi ✏ 
 
 <br/>
+![졸업발표용](https://github.com/comgongdaeng/Geuldobi/assets/109388787/06d7c05a-8f85-45d8-bcd0-0436bf034f86)
 
 ## 🔎 크롬 익스텐션 글도비 이용해보기  
 
